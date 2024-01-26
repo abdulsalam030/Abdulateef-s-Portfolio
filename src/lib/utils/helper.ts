@@ -30,7 +30,7 @@ export const getId = () => `id${Math.random().toString(16).slice(2)}`;
  */
 
 export const sortByYear = (projects: ProjectType[]) => {
-  return projects.sort((a, b) => b.year - a.year);
+  return projects;
 };
 
 /**
