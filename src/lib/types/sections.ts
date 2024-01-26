@@ -31,7 +31,6 @@ export interface AboutSectionType extends Section {
     title: string;
     items: string[];
   };
-  img: string;
 }
 
 type SkillType = {
