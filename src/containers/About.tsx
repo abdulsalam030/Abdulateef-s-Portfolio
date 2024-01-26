@@ -10,7 +10,7 @@ import { getSectionAnimation } from '@/styles/animations';
 import { useEffect, useState } from 'react';
 
 const About = () => {
-  const { title, img, list } = aboutSection;
+  const { title, list } = aboutSection;
   // To avoid hydration error
   const [domLoaded, setDomLoaded] = useState(false);
 
@@ -24,10 +24,12 @@ const About = () => {
       <main className="flex flex-col items-center gap-16 lg:items-start lg:flex-row">
         <div className="space-y-4 lg:w-3/5">
           <p>
-          As a FrontEnd Developer, I'm fueled by passion for crafting tidy and user-friendly Web Applications.
-         I specialize in the craftsmanship of HTML, CSS, JavaScript, and FrameWorks such as React and NextJs intricately designing responsive
-          interfaces that enchant users on any device.
-           Let's transform your concepts into a harmonious blend of style and functionality! 🚀"
+            As a FrontEnd Developer, I'm fueled by passion for crafting tidy and
+            user-friendly Web Applications. I specialize in the craftsmanship of
+            HTML, CSS, JavaScript, and FrameWorks such as React and NextJs
+            intricately designing responsive interfaces that enchant users on
+            any device. Let's transform your concepts into a harmonious blend of
+            style and functionality! 🚀"
           </p>
           {list && (
             <>
