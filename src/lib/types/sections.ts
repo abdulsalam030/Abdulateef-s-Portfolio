@@ -13,6 +13,7 @@ export interface Section {
 
 export interface NavbarSectionType {
   navLinks: NavLinkType[];
+  cta?: any;
 }
 
 export interface HeroSectionType extends Section {
