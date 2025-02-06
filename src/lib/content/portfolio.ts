@@ -21,7 +21,7 @@ export const seoData = {
   description:
     'Abdulsalam Abdulateef is a front-end developer who specializes in building (and occasionally designing) exceptional visual interfaces.',
   author: author.name,
-  url: 'https://my-portfolio-zeta-umber.vercel.app/',
+  url: 'https://abdulateef-s-portfolio.vercel.app/',
   keywords: [
     'Abdulsalam',
     'Abdulsalam Abdulateef',
