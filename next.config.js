@@ -13,6 +13,7 @@ module.exports = {
         hostname: 'github-production-user-asset-6210df.s3.amazonaws.com',
         pathname: '/**',
       },
+
       {
         protocol: 'https',
         hostname: 'github.com',
