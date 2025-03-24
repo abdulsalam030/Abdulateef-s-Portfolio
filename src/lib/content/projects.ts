@@ -38,11 +38,11 @@ export const projectsSection: ProjectsSectionType = {
     },
     {
       id: getId(),
-      name: 'Login/Signup Form',
-      url: 'https://simple-login-signup-form.vercel.app/',
-      repo: 'https://github.com/abdulsalam030/simple-login-signup-form',
-      img: 'https://user-images.githubusercontent.com/97962493/295215597-31d729f0-1cc5-48fe-80c7-1f23f87c769f.PNG',
-      tags: ['HTML', 'Bootstrap'],
+      name: 'Track Flow',
+      url: 'https://track-flow-mu.vercel.app/',
+      repo: 'https://github.com/abdulsalam030/TrackFlow',
+      img: 'https://github.com/user-attachments/assets/13b067e7-c7c9-42c9-871e-95b4706e1de9',
+      tags: ['React', 'Spotify API', 'Tailwind'],
     },
     {
       id: getId(),
