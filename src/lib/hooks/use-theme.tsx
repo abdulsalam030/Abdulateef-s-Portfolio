@@ -47,7 +47,12 @@ export default function ThemeProvider({
   }, []);
 
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined')
+      return;
+
+    // Safe to run now
     localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {

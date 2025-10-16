@@ -28,19 +28,25 @@ const hideNavWhileScrolling = ({
   offset?: number;
   when: boolean;
 }) => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
   const nav = document.getElementById(id);
   if (!nav) return;
 
   let prevScrollPos = window.pageYOffset;
 
-  window.onscroll = () => {
+  const handleScroll = () => {
     if (when) {
       const curScrollPos = window.pageYOffset;
-      if (prevScrollPos < curScrollPos) nav.style.top = `-${offset}px`;
-      else nav.style.top = '0';
+      nav.style.top = prevScrollPos < curScrollPos ? `-${offset}px` : '0';
       prevScrollPos = curScrollPos;
     }
   };
+
+  window.addEventListener('scroll', handleScroll);
+
+  // ✅ Cleanup
+  return () => window.removeEventListener('scroll', handleScroll);
 };
 
 type NavItemsProps = {

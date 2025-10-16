@@ -13,11 +13,22 @@ const Cursor = ({ className = '' }: Props) => {
     return () => removeEventListeners();
   }, []);
 
+  // const addEventListeners = () => {
+  //   document.addEventListener('mousemove', onMouseMove);
+  // };
+
+  // const removeEventListeners = () => {
+  //   document.removeEventListener('mousemove', onMouseMove);
+  // };
   const addEventListeners = () => {
+    if (typeof window === 'undefined' || typeof document === 'undefined')
+      return;
     document.addEventListener('mousemove', onMouseMove);
   };
 
   const removeEventListeners = () => {
+    if (typeof window === 'undefined' || typeof document === 'undefined')
+      return;
     document.removeEventListener('mousemove', onMouseMove);
   };
 
