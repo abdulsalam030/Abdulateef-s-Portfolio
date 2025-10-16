@@ -1,16 +1,21 @@
+'use client';
 import { useEffect, useState } from 'react';
 
 const useWindowWidth = () => {
   const [windowWidth, setWindowWidth] = useState(0);
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('resize', () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }
-
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
+    if (typeof window === 'undefined') return;
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Initialize on mount
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return windowWidth;

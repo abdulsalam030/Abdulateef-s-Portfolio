@@ -21,28 +21,17 @@ const Cursor = ({ className = '' }: Props) => {
   //   document.removeEventListener('mousemove', onMouseMove);
   // };
   useEffect(() => {
-    const addEventListeners = () => {
-      if (typeof window === 'undefined' || typeof document === 'undefined')
-        return;
-      document.addEventListener('mousemove', onMouseMove);
+    if (typeof window === 'undefined') return;
+
+    const onMouseMove = (e: MouseEvent) => {
+      setPosition({ x: e.clientX, y: e.clientY });
     };
 
-    const removeEventListeners = () => {
-      if (typeof window === 'undefined' || typeof document === 'undefined')
-        return;
-      document.removeEventListener('mousemove', onMouseMove);
-    };
-
-    addEventListeners();
-
+    window.addEventListener('mousemove', onMouseMove);
     return () => {
-      removeEventListeners();
+      window.removeEventListener('mousemove', onMouseMove);
     };
-  }, []); // Add dependencies as needed
-
-  const onMouseMove = (e: MouseEvent) => {
-    setPosition({ x: e.clientX, y: e.clientY });
-  };
+  }, []);
 
   return (
     <div
