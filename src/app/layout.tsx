@@ -6,6 +6,7 @@ import Cursor from '@/components/ui/Cursor';
 
 import '../styles/globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: seoData.title,
@@ -74,18 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* <script src="/scripts/no-flash.js" async /> */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function() {
-              if (typeof document !== 'undefined') {
-                document.documentElement.classList.add('dark');
-              }
-            })();
-          `,
-          }}
-        />
+        <Script src="/scripts/no-flash.js" strategy="beforeInteractive" />
       </head>
       <body className={`text-text bg-bg ${fontVariables}`}>
         <Cursor className="hidden dark:lg:block" />
