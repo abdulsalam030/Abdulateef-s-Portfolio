@@ -6,11 +6,17 @@ export const projectsSection: ProjectsSectionType = {
   projects: [
     {
       id: getId(),
-      name: 'Shopping Cart',
-      url: 'https://shopping-cart-omega-seven.vercel.app/',
-      repo: 'https://github.com/abdulsalam030/Shopping-Cart',
-      img: 'https://user-images.githubusercontent.com/97962493/294443404-75823c20-4ffa-4585-a6ff-a14b89cb4af6.PNG',
-      tags: ['React', 'React-Router', 'Paystack API'],
+      name: 'Swift Shop',
+      url: 'https://swift-shop-one.vercel.app/',
+      repo: 'https://github.com/abdulsalam030/Swift-Shop',
+      img: '/SwiftShop.png',
+      tags: [
+        'Next.js',
+        'TypeScript',
+        'Tailwind',
+        'React Context API',
+        'Shadcn',
+      ],
     },
     {
       id: getId(),
