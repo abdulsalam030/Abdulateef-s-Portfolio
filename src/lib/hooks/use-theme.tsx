@@ -52,7 +52,6 @@ export default function ThemeProvider({
 
     // Safe to run now
     localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {

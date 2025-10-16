@@ -74,7 +74,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <script src="/scripts/no-flash.js" async />
+        {/* <script src="/scripts/no-flash.js" async /> */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function() {
+              if (typeof document !== 'undefined') {
+                document.documentElement.classList.add('dark');
+              }
+            })();
+          `,
+          }}
+        />
       </head>
       <body className={`text-text bg-bg ${fontVariables}`}>
         <Cursor className="hidden dark:lg:block" />
