@@ -7,66 +7,65 @@ import {
   useState,
 } from 'react';
 
-const initialState = {
-  isDarkMode: false,
-  toggle: () => {
-    return;
-  },
-  enableDarkMode: (_: boolean) => {
-    return;
-  },
-  disableDarkMode: (_: boolean) => {
-    return;
-  },
+type ThemeContextType = {
+  isDarkMode: boolean;
+  toggle: () => void;
+  enableDarkMode: () => void;
+  disableDarkMode: () => void;
 };
 
-const ThemeContext = createContext(initialState);
+const ThemeContext = createContext<ThemeContextType>({
+  isDarkMode: false,
+  toggle: () => {},
+  enableDarkMode: () => {},
+  disableDarkMode: () => {},
+});
 
 export default function ThemeProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(
-    typeof window !== 'undefined' &&
-      JSON.parse(localStorage.getItem('darkMode') || 'true')
-      ? true
-      : false
-  );
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false); // ✅ ensures DOM is ready
 
-  const toggle = useCallback(() => {
-    setIsDarkMode((prev) => !prev);
-  }, []);
+  // Run only after mount (client side)
+  useEffect(() => {
+    setMounted(true);
 
-  const enableDarkMode = useCallback(() => {
-    setIsDarkMode(true);
-  }, []);
-
-  const disableDarkMode = useCallback(() => {
-    setIsDarkMode(false);
+    // safely access localStorage
+    const stored = localStorage.getItem('darkMode');
+    if (stored) {
+      setIsDarkMode(JSON.parse(stored));
+    } else {
+      // default to dark mode if not stored
+      setIsDarkMode(true);
+    }
   }, []);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || typeof document === 'undefined')
-      return;
+    if (!mounted) return; // avoid running during SSR
 
-    // Safe to run now
     localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+
+    // DOM manipulation safely (only after mount)
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [isDarkMode]);
+  }, [isDarkMode, mounted]);
+
+  const toggle = useCallback(() => setIsDarkMode((prev) => !prev), []);
+  const enableDarkMode = useCallback(() => setIsDarkMode(true), []);
+  const disableDarkMode = useCallback(() => setIsDarkMode(false), []);
+
+  // ✅ Avoid hydration mismatch — render children only after mount
+  if (!mounted) return null;
 
   return (
     <ThemeContext.Provider
-      value={{
-        isDarkMode,
-        toggle,
-        enableDarkMode,
-        disableDarkMode,
-      }}
+      value={{ isDarkMode, toggle, enableDarkMode, disableDarkMode }}
     >
       {children}
     </ThemeContext.Provider>

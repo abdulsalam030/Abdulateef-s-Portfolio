@@ -1,5 +1,6 @@
 import { seoData } from '@/lib/content/portfolio';
-import ThemeProvider from '@/lib/hooks/use-theme';
+// import ThemeProvider from '@/lib/hooks/use-theme';
+import ClientWrapper from '@/components/ClientWrapper';
 import fontVariables from '@/lib/utils/fonts';
 
 // import Cursor from '@/components/ui/Cursor';
@@ -79,11 +80,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <Script src="/scripts/no-flash.js" strategy="beforeInteractive" />
+        {/* <Script src="/scripts/no-flash.js" strategy="beforeInteractive" /> */}
       </head>
       <body className={`text-text bg-bg ${fontVariables}`}>
-        <Cursor className="hidden dark:lg:block" />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ClientWrapper>
+          <Cursor className="hidden dark:lg:block" />
+          {children}
+        </ClientWrapper>
+
+        {/* <ThemeProvider>{children}</ThemeProvider> */}
       </body>
     </html>
   );
