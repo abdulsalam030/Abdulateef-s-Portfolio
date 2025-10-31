@@ -5,6 +5,6 @@ export const heroSection: HeroSectionType = {
   title: 'Abdulsalam Abdulateef.',
   tagline: 'I create visually pleasing interfaces for the web.',
   description:
-    "A FrontEnd Developer with passion for creating neat and easy to use Web Applications. My expertise lies in the artistry of HTML, CSS, and JavaScript, where I weave responsive interfaces that captivate on every device. Let's bring your ideas to life with style and functionality! 🚀",
+    'A Frontend Developer passionate about building clean, scalable, and user-friendly web applications.With expertise in HTML, CSS, JavaScript, and TypeScript, I specialize in creating responsive and high-performing interfaces using modern frameworks like React and Next.js. I leverage tools such as Tailwind CSS, Vite, and Git to deliver maintainable, visually appealing, and efficient web solutions. 🚀',
   specialText: 'Currently available for a job & freelance',
 };
