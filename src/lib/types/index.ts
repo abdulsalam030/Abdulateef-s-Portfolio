@@ -31,6 +31,7 @@ export type ProjectType = {
   img: string;
   tags: string[];
   repo: string;
+  description?: string;
 };
 
 export type StringKeyValueType = {

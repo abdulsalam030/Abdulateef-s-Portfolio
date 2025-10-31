@@ -13,6 +13,7 @@ const ProjectCard = ({
   repo,
   img,
   tags,
+  description,
   ...rest
 }: ProjectType & MotionProps) => {
   // To avoid hydration failed error
@@ -26,7 +27,6 @@ const ProjectCard = ({
     <motion.div {...rest} className="w-full max-w-[350px]">
       <button
         onClick={(e) => {
-          // Don't run this if the clicked target is an anchor element
           if ((e.target as HTMLElement).closest('a')) return;
           window.open(url);
         }}
@@ -43,27 +43,37 @@ const ProjectCard = ({
             className="object-cover w-full h-full transition-all duration-300 group-hover:scale-110 group-focus:scale-110"
           />
         </div>
-        <div className="p-4 py-3 space-y-1">
-          <div className="flex items-center justify-between">
-            <p className="font-mono text-xs capitalize">{tags.join(' | ')}</p>
-            <div className="flex items-center space-x-1.5">
-              <a
-                href={repo}
-                className="block duration-200 hover:text-accent"
-                target="_blank"
-              >
-                <Icon icon="tabler:brand-github" width={20} height={20} />
-              </a>
-              <a
-                href={url}
-                className="block duration-200 hover:text-accent"
-                target="_blank"
-              >
-                <Icon icon="ci:external-link" width={22} height={22} />
-              </a>
+
+        <div className="flex flex-col justify-between p-4 py-3 space-y-3">
+          <div>
+            <div className="flex items-center justify-between">
+              <p className="font-mono text-xs capitalize">{tags.join(' | ')}</p>
+              <div className="flex items-center space-x-1.5">
+                <a
+                  href={repo}
+                  className="block duration-200 hover:text-accent"
+                  target="_blank"
+                >
+                  <Icon icon="tabler:brand-github" width={20} height={20} />
+                </a>
+                <a
+                  href={url}
+                  className="block duration-200 hover:text-accent"
+                  target="_blank"
+                >
+                  <Icon icon="ci:external-link" width={22} height={22} />
+                </a>
+              </div>
             </div>
+
+            {description && (
+              <p className="mt-3 text-[13px] leading-relaxed text-gray-700 dark:text-gray-300 font-[450]">
+                {description}
+              </p>
+            )}
           </div>
-          <h4 className="flex justify-between font-medium capitalize duration-200 group-hover:text-accent">
+
+          <h4 className="flex justify-between font-semibold capitalize text-lg duration-200 group-hover:text-accent">
             <span>{name}</span>
           </h4>
         </div>

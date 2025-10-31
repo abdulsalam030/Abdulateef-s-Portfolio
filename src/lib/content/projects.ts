@@ -17,6 +17,28 @@ export const projectsSection: ProjectsSectionType = {
         'React Context API',
         'Shadcn',
       ],
+      description:
+        'SwiftShop is a modern, responsive e-commerce store.It offers searchable, filterable product listings, dynamic product pages, a functional cart, and a mock checkout. Optimized with lazy loading, it showcases best practices in performance and UX..',
+    },
+    {
+      id: getId(),
+      name: 'PING',
+      url: 'https://ping-zeta-three.vercel.app/',
+      repo: 'https://github.com/abdulsalam030/Ping',
+      img: '/Ping1.png',
+      tags: ['React', 'TypeScript', 'Tailwind', 'Firebase'],
+      description:
+        'A real-time chat application built with React and TypeScript, styled with Tailwind CSS. The app leverages Firebase for authentication and real-time database functionality, allowing users to sign in, join chat rooms, and exchange messages instantly.',
+    },
+    {
+      id: getId(),
+      name: 'Track Flow',
+      url: 'https://track-flow-mu.vercel.app/',
+      repo: 'https://github.com/abdulsalam030/TrackFlow',
+      img: 'https://github.com/user-attachments/assets/13b067e7-c7c9-42c9-871e-95b4706e1de9',
+      tags: ['React', 'Spotify API', 'Tailwind'],
+      description:
+        'TrackFlow is a music discovery app that integrates with the Spotify API to provide users with personalized music recommendations. Built with React and styled using Tailwind CSS, the app features a sleek and responsive design, allowing users to explore new tracks and artists based on their listening habits.',
     },
     {
       id: getId(),
@@ -26,14 +48,7 @@ export const projectsSection: ProjectsSectionType = {
       img: 'https://user-images.githubusercontent.com/97962493/295207149-2fe6d7e2-fa48-4f64-8b7e-41b0903a90bf.png',
       tags: ['React', 'ContextApi'],
     },
-    {
-      id: getId(),
-      name: 'Authentication',
-      url: 'https://react-authentication-form.vercel.app/',
-      repo: 'https://github.com/abdulsalam030/Authentication-with-FireBase-App',
-      img: 'https://user-images.githubusercontent.com/97962493/295211223-966970db-4da7-4f12-b456-01705edddaf2.png',
-      tags: ['React', 'Firebase'],
-    },
+
     {
       id: getId(),
       name: 'Weather App',
@@ -42,14 +57,7 @@ export const projectsSection: ProjectsSectionType = {
       img: 'https://user-images.githubusercontent.com/97962493/295212299-5757dd73-bfc3-4de0-80bc-b1e05b45d5d1.PNG',
       tags: ['React', 'OpenWeather API'],
     },
-    {
-      id: getId(),
-      name: 'Track Flow',
-      url: 'https://track-flow-mu.vercel.app/',
-      repo: 'https://github.com/abdulsalam030/TrackFlow',
-      img: 'https://github.com/user-attachments/assets/13b067e7-c7c9-42c9-871e-95b4706e1de9',
-      tags: ['React', 'Spotify API', 'Tailwind'],
-    },
+
     {
       id: getId(),
       name: 'Manage Landing Page',
